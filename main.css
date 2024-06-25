@@ -1,0 +1,344 @@
+:root {
+  --text-tm: #fff;
+  --background-color: #ccc;
+  --text-color: #000;
+  --text-read: #bfbb9a;
+
+  --margin-body-v: 6vh;
+  --margin-body-h: 3.75vw;
+  --nav-pag-height: 2.5vh;
+}
+
+@font-face {
+  font-family: 'Samsungsharp-bold';
+  src: url('./fonts/SamsungSharpSans/samsungsharpsans-bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Samsungsharp-medium';
+  src: url('./fonts/SamsungSharpSans/samsungsharpsans-medium.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Samsungsharp';
+  src: url('./fonts/SamsungSharpSans/samsungsharpsans.otf');
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+body {
+  font-family: 'Samsungsharp', sans-serif;
+
+  height: calc(100vh - 2 * var(--margin-body-v));
+  margin: var(--margin-body-v) var(--margin-body-h);
+  border: 1px solid black;
+  box-sizing: border-box;
+
+  background-image: url('./images/bgimage.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.empty-page {
+  font-family: 'Samsungsharp-bold';
+  font-size: clamp(12px, 6vh, 60px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+
+  color: var(--text-color);
+  height: 100%;
+  min-width: 0;
+}
+
+.frame-1 {
+  height: 100%;
+  width: 100%;
+
+  background-image: url('./images/bg-frame1.jpg');
+  background-position: center;
+  background-size: 100% 100%;
+
+  color: #000;
+}
+
+.frame-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: calc(100%);
+}
+
+.top-line {
+  position: absolute;
+  top: 5vh;
+  left: 2.5vw;
+  right: 2.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 25;
+}
+
+.logo {
+  width: 24vh;
+  height: 4vh;
+  background-image: url('./images/logos_icons/samsung.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 25;
+}
+
+.trade-mark {
+  display: inline-block;
+  margin-left: auto;
+  font-family: 'Samsungsharp-bold', sans-serif;
+  font-size: 4vh;
+  line-height: 4vh;
+  color: var(--text-tm);
+}
+
+.discribe {
+  position: absolute;
+  left: 2.5vw;
+  top: 27vh;
+  max-width: 46.5vw;
+  font-family: 'Samsungsharp-bold';
+  font-size: 4vh;
+  z-index: 25;
+
+  overflow-x: hidden;
+
+  animation-name: moveUp;
+  animation-delay: 2100ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveUp {
+  from {
+    top: 27vh;
+  }
+  to {
+    top: 22vh;
+  }
+}
+
+.discribe #line1 {
+  transform: translateX(-100%);
+  animation: slide 1s linear;
+  animation-fill-mode: forwards;
+}
+
+.discribe #line2 {
+  transform: translateX(-100%);
+  animation-name: slide;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.discribe #line3 {
+  transform: translateX(-100%);
+  animation-name: slide;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+  transform: translateX(0%);
+  }
+}
+
+.kitchen-logo {
+  display: inline-block;
+  width: 16vh;
+  height: 4vh;
+  background-image: url('./images/logos_icons/kitchenLogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.button {
+  display: block;
+  width: fit-content;
+  padding: 2vh 3vh;
+  border: 3px solid #000;
+  border-radius: 7vh;
+
+  position: absolute;
+  bottom: 5vh;
+  left: 2.5vw;
+  margin-top: auto;
+
+  font-family: 'Samsungsharp-medium';
+  font-size: 3vh;
+  line-height: 3vh;
+  text-transform: uppercase;
+  z-index: 25;
+}
+
+.frame-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.frame-2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #fff;
+  height: 100%;
+  min-width: 0;
+  z-index: 5;
+
+  animation: frameVisible;
+  animation-delay: 3500ms;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes frameVisible {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.text-slider {
+  width: 51.5%;
+  font-family: 'Samsungsharp-medium', sans-serif;
+  color: #000;
+  font-size: calp(12px, 1.5vh, 36px);
+  line-height: 1.5;
+  text-align: left;
+  padding-left: 2.5vw;
+  margin-left: 2.5vw;
+  margin-top: 45vh;
+}
+
+.image-slider {
+  height: 100%;
+  min-width: 45%;
+}
+
+.image-slide {
+  width: 100%;
+}
+
+.right-side {
+  height: 100%;
+  width: 48.5%;
+}
+
+.image-slider--frame1 {
+  background-image: url('./images/bg-frame2.jpg');
+  background-size: 100% 100%;
+}
+.image-slider--frame2 {
+  background-image: url('./images/bg-frame3.jpg');
+  background-size: 100% 100%;
+}
+.image-slider--frame3 {
+  background-image: url('./images/bg-frame4.jpg');
+  background-size: 100% 100%;
+}
+.image-slider--frame4 {
+  background-image: url('./images/bg-frame5or.jpg');
+  background-size: 100% 100%;
+}
+.image-slider--frame5 {
+  background-image: url('./images/bg-frame6.jpg');
+  background-size: 100% 100%;
+}
+
+.read-more {
+  color: #808080;
+}
+
+.frame-2 .swiper-button-next::after,
+.frame-2 .swiper-button-prev::after {
+  color: #000;
+  font-size: var(--nav-pag-height);
+}
+
+.frame-2 .swiper-pagination-fraction {
+  font-size: var(--nav-pag-height);
+  line-height: var(--nav-pag-height);
+  color: #000;
+  font-family: 'Samsungsharp-medium', sans-serif;
+}
+
+.nav-pag {
+  position: relative;
+  left: 2.5vw;
+  width: 11vh;
+}
+
+.swiper.image-slider {
+  margin-right: 0;
+  width: 45%;
+}
+
+.swiper.text-slider {
+  margin-left: 0;
+  width: 55%;
+}
+
+.swiper-button-next {
+  right: 0;
+  height: var(--nav-pag-height);
+  margin-top: calc(-16.5vh - var(--nav-pag-height));
+  width: 1vh;
+}
+.swiper-button-prev {
+  left: 0;
+  height: var(--nav-pag-height);
+  margin-top: -19vh;
+  width: 1vh;
+}
+
+.swiper-pagination {
+  bottom: 16.5vh;
+  line-height: var(--nav-pag-height);
+  text-align: center;
+  width: 11vh;
+}
